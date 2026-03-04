@@ -1,0 +1,17 @@
+[workspace]
+resolver = "3"
+members = [
+    "modules/broken-app",
+    "modules/reference-app"
+]
+
+[workspace.package]
+version = "0.1.0"
+description = "Optimization and safety"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+authors = ["Arthur Hovhannisyan <arthurhovhannisyan31@gmail.com>"]
+repository = "https://github.com/arthurhovhannisyan31/optimization_n_safety"
+rust-version = "1.93.0"
+
+[workspace.dependencies]
