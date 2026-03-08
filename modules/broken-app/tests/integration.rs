@@ -32,6 +32,8 @@ mod test {
   #[test]
   fn normalize_simple() {
     assert_eq!(normalize(" Hello World "), "helloworld");
+    assert_eq!(normalize(" Hello      World "), "helloworld");
+    assert_eq!(normalize("\tHello\tWorld\t"), "helloworld");
   }
 
   #[test]
@@ -40,3 +42,16 @@ mod test {
     // Ожидается (5 + 15) / 2 = 10, но текущая реализация делит на все элементы.
     assert!((broken_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON);
   }
+
+  #[test]
+  fn test_uaf() {
+    assert_eq!(unsafe { use_after_free() }, 84);
+  }
+
+  #[test]
+  fn race_increment_is_correct() {
+    let counter = Arc::new(RwLock::new(0));
+    let total = concurrency::race_increment(counter, 1_000, 4);
+    assert_eq!(total, 4_000);
+  }
+}

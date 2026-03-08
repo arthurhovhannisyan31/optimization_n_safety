@@ -4,7 +4,8 @@ use std::time::Instant;
 fn time_it(label: &str, mut f: impl FnMut()) {
   let start = Instant::now();
   f();
-  println!("{label}: {:?}", start.elapsed());
+  let elapsed = start.elapsed();
+  println!("{label}: {:?}", elapsed);
 }
 
 fn main() {

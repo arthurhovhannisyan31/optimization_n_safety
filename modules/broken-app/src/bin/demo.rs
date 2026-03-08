@@ -1,4 +1,4 @@
-use broken_app::{algo, leak_buffer, normalize, sum_even};
+use broken_app::{algo, leak_buffer, normalize, sum_even, use_after_free};
 
 fn main() {
   let nums = [1, 2, 3, 4];
@@ -15,4 +15,7 @@ fn main() {
 
   let uniq = algo::slow_dedup(&[1, 2, 2, 3, 1, 4, 4]);
   println!("dedup: {:?}", uniq);
+
+  let answer = unsafe { use_after_free() };
+  println!("use after free: {answer}");
 }
