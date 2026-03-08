@@ -3,11 +3,16 @@ name = "broken-app"
 version = "0.1.0"
 edition = "2024"
 
-[dependencies]
+[profile.release]
+debug = true
 
 [dev-dependencies]
-criterion = "0.5"
+criterion = "0.8"
 
 [[bench]]
 name = "baseline"
+harness = false
+
+[[bench]]
+name = "criterion"
 harness = false
