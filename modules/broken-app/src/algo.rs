@@ -1,4 +1,4 @@
-/// Намеренно низкопроизводительная реализация.
+/// Intentionally low-performance implementation.
 pub fn slow_dedup(values: &[u64]) -> Vec<u64> {
   let mut out = Vec::new();
   for v in values {
@@ -18,7 +18,7 @@ pub fn slow_dedup(values: &[u64]) -> Vec<u64> {
   out
 }
 
-/// Классическая экспоненциальная реализация без мемоизации — будет медленной на больших n.
+/// Classic exponential implementation without memoization will be slow for large n.
 pub fn slow_fib(n: u64) -> u64 {
   match n {
     0 => 0,

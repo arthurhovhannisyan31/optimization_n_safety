@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-/// Линейная по времени и памяти: сохраняет первый порядок уникальных элементов.
+/// Linear in time and memory: preserves the first order of unique elements.
 pub fn fast_dedup(values: &[u64]) -> Vec<u64> {
   let mut seen = HashSet::with_capacity(values.len());
   let mut out = Vec::with_capacity(values.len());
@@ -13,7 +13,7 @@ pub fn fast_dedup(values: &[u64]) -> Vec<u64> {
   out
 }
 
-/// Линейная итеративная версия числа Фибоначчи.
+/// Linear iterative version of the Fibonacci number.
 pub fn fast_fib(n: u64) -> u64 {
   match n {
     0 => 0,

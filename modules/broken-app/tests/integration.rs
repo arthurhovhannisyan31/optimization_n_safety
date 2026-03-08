@@ -8,7 +8,7 @@ mod test {
   #[test]
   fn sums_even_numbers() {
     let nums = [1, 2, 3, 4];
-    // Ожидаем корректное суммирование: 2 + 4 = 6.
+    // We expect the correct summation: 2 + 4 = 6.
     assert_eq!(sum_even(&nums), 6);
   }
 
@@ -32,12 +32,26 @@ mod test {
   #[test]
   fn normalize_simple() {
     assert_eq!(normalize(" Hello World "), "helloworld");
+    assert_eq!(normalize(" Hello      World "), "helloworld");
+    assert_eq!(normalize("\tHello\tWorld\t"), "helloworld");
   }
 
   #[test]
   fn averages_only_positive() {
     let nums = [-5, 5, 15];
-    // Ожидается (5 + 15) / 2 = 10, но текущая реализация делит на все элементы.
+    // Expected (5 + 15) / 2 = 10, but the current implementation divides by all elements.
     assert!((broken_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON);
+  }
+
+  #[test]
+  fn test_uaf() {
+    assert_eq!(unsafe { use_after_free() }, 84);
+  }
+
+  #[test]
+  fn race_increment_is_correct() {
+    let counter = Arc::new(RwLock::new(0));
+    let total = concurrency::race_increment(counter, 1_000, 4);
+    assert_eq!(total, 4_000);
   }
 }

@@ -30,8 +30,13 @@ fn normalize_simple() {
 
 #[test]
 fn averages_only_positive() {
-  let nums = [-5, 5, 15];
-  assert!((reference_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON);
+  assert!(
+    (reference_app::average_positive(&[-5, 5, 15]) - 10.0).abs() < f64::EPSILON
+  );
+  assert!(
+    (reference_app::average_positive(&[-5, 0, 5, 10]) - 7.5).abs()
+      < f64::EPSILON
+  );
 }
 
 #[test]

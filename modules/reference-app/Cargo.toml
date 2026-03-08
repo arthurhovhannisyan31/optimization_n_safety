@@ -11,3 +11,7 @@ criterion = "0.8"
 [[bench]]
 name = "baseline"
 harness = false
+
+[[bench]]
+name = "criterion"
+harness = false

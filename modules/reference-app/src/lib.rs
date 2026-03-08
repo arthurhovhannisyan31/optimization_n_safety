@@ -1,22 +1,22 @@
 pub mod algo;
 pub mod concurrency;
 
-/// Безопасная и быстрая версия: без `unsafe`, чистый проход по срезу.
+/// Safe and fast version: no `unsafe`, pure slice pass.
 pub fn sum_even(values: &[i64]) -> i64 {
   values.iter().copied().filter(|v| v % 2 == 0).sum()
 }
 
-/// Подсчёт ненулевых байтов без утечек.
+/// Counting non-zero bytes without leaks.
 pub fn leak_buffer(input: &[u8]) -> usize {
   input.iter().filter(|b| **b != 0).count()
 }
 
-/// Нормализация: убираем все виды пробельных символов и приводим к нижнему регистру.
+/// Normalization: remove all types of whitespace characters and convert to lowercase.
 pub fn normalize(input: &str) -> String {
   input.split_whitespace().collect::<String>().to_lowercase()
 }
 
-/// Корректное усреднение только положительных чисел.
+/// Correct averaging of only positive numbers.
 pub fn average_positive(values: &[i64]) -> f64 {
   let positives: Vec<i64> = values.iter().copied().filter(|v| *v > 0).collect();
   if positives.is_empty() {
