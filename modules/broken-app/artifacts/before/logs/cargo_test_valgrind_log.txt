@@ -1,0 +1,73 @@
+==73936== Memcheck, a memory error detector
+==73936== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==73936== Using Valgrind-3.25.1 and LibVEX; rerun with -h for copyright info
+==73936== Command: cargo test -p broken-app
+==73936== 
+warning: profiles for the non root package will be ignored, specify profiles at the workspace root:
+package:   /home/q/Documents/Dev/Personal/Pet/optimization_n_safety/modules/broken-app/Cargo.toml
+workspace: /home/q/Documents/Dev/Personal/Pet/optimization_n_safety/Cargo.toml
+warning[E0133]: dereference of raw pointer is unsafe and requires unsafe block
+  --> modules/broken-app/src/lib.rs:60:13
+   |
+60 |   let val = *raw;
+   |             ^^^^ dereference of raw pointer
+   |
+   = note: raw pointers may be null, dangling or unaligned; they can violate aliasing rules and cause data races: all of these are undefined behavior
+note: an unsafe function restricts its caller, but its body is safe by default
+  --> modules/broken-app/src/lib.rs:57:1
+   |
+57 | pub unsafe fn use_after_free() -> i32 {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+   = note: `#[warn(unsafe_op_in_unsafe_fn)]` (part of `#[warn(rust_2024_compatibility)]`) on by default
+
+warning[E0133]: call to unsafe function `std::boxed::Box::<T>::from_raw` is unsafe and requires unsafe block
+  --> modules/broken-app/src/lib.rs:61:8
+   |
+61 |   drop(Box::from_raw(raw));
+   |        ^^^^^^^^^^^^^^^^^^ call to unsafe function
+   |
+   = note: consult the function's documentation for information on how to avoid undefined behavior
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+warning[E0133]: dereference of raw pointer is unsafe and requires unsafe block
+  --> modules/broken-app/src/lib.rs:62:9
+   |
+62 |   val + *raw
+   |         ^^^^ dereference of raw pointer
+   |
+   = note: raw pointers may be null, dangling or unaligned; they can violate aliasing rules and cause data races: all of these are undefined behavior
+   = note: for more information, see <https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html>
+
+For more information about this error, try `rustc --explain E0133`.
+warning: `broken-app` (lib) generated 3 warnings (run `cargo fix --lib -p broken-app` to apply 1 suggestion)
+warning: unused imports: `concurrency` and `use_after_free`
+ --> modules/broken-app/tests/integration.rs:4:11
+  |
+4 |     algo, concurrency, leak_buffer, normalize, sum_even, use_after_free,
+  |           ^^^^^^^^^^^                                    ^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `Arc` and `RwLock`
+ --> modules/broken-app/tests/integration.rs:6:19
+  |
+6 |   use std::sync::{Arc, RwLock};
+  |                   ^^^  ^^^^^^
+
+warning: `broken-app` (test "integration") generated 2 warnings (run `cargo fix --test "integration" -p broken-app` to apply 2 suggestions)
+warning: `broken-app` (lib test) generated 3 warnings (3 duplicates)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.05s
+     Running unittests src/lib.rs (/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/target/debug/deps/broken_app-6e2548d3724ac47a)
+     Running unittests src/bin/demo.rs (/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/target/debug/deps/demo-ac769f0027d69a25)
+     Running tests/integration.rs (/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/target/debug/deps/integration-e8e4cd8af84b77cc)
+
+thread 'test::sums_even_numbers' (73962) panicked at modules/broken-app/src/lib.rs:11:23:
+unsafe precondition(s) violated: slice::get_unchecked requires that the index is within the slice
+
+This indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.
+thread caused non-unwinding panic. aborting.
+error: test failed, to rerun pass `-p broken-app --test integration`
+
+Caused by:
+  process didn't exit successfully: `/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/target/debug/deps/integration-e8e4cd8af84b77cc` (signal: 6, SIGABRT: process abort signal)
