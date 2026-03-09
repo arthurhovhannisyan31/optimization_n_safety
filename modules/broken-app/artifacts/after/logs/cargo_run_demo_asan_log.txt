@@ -1,0 +1,3 @@
+   Compiling broken-app v0.1.0 (/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/modules/broken-app)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.56s
+     Running `/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/target/x86_64-unknown-linux-gnu/debug/demo`
