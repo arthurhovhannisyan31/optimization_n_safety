@@ -1,0 +1,11 @@
+sum_even_broken         time:   [10.842 µs 10.959 µs 11.094 µs]
+
+slow_fib_broken         time:   [4.8127 ms 4.8953 ms 4.9813 ms]
+Found 22 outliers among 100 measurements (22.00%)
+  22 (22.00%) high severe
+
+slow_dedup_broken       time:   [13.010 ms 13.037 ms 13.074 ms]
+Found 9 outliers among 100 measurements (9.00%)
+  7 (7.00%) high mild
+  2 (2.00%) high severe
+
