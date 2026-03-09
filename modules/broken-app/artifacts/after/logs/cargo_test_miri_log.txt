@@ -1,0 +1,6 @@
+   Compiling broken-app v0.1.0 (/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/modules/broken-app)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.13s
+     Running unittests src/lib.rs (/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/target/miri/x86_64-unknown-linux-gnu/debug/deps/broken_app-54189c5a9469be56)
+     Running unittests src/bin/demo.rs (/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/target/miri/x86_64-unknown-linux-gnu/debug/deps/demo-ddb9ee91750ab6a7)
+     Running tests/integration.rs (/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/target/miri/x86_64-unknown-linux-gnu/debug/deps/integration-1c8a4740fd8e3226)
+   Doc-tests broken_app

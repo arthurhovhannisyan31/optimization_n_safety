@@ -1,0 +1,7 @@
+==75396== Memcheck, a memory error detector
+==75396== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==75396== Using Valgrind-3.25.1 and LibVEX; rerun with -h for copyright info
+==75396== Command: cargo run -p broken-app --bin demo
+==75396== 
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.02s
+     Running `/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/target/debug/demo`

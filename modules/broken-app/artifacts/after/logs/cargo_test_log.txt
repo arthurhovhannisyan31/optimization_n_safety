@@ -1,0 +1,6 @@
+   Compiling broken-app v0.1.0 (/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/modules/broken-app)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.21s
+     Running unittests src/lib.rs (/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/target/debug/deps/broken_app-ae515e1c3aea5de9)
+     Running unittests src/bin/demo.rs (/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/target/debug/deps/demo-feff873b1ba3537b)
+     Running tests/integration.rs (/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/target/debug/deps/integration-eab4ffb9575937fc)
+   Doc-tests broken_app

@@ -33,7 +33,6 @@ jobs:
           fi
       - name: Build target
         run: cargo build
-      - name: Validate unit tests
+      - name: Validate tests
         run: |
-          make test-unit
-          make test-e2e
+          make test-all

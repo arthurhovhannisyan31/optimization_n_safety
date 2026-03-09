@@ -1,0 +1,23 @@
+sum_even_broken         time:   [11.883 µs 11.965 µs 12.030 µs]
+                        change: [+6.9744% +8.1591% +9.3646%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 9 outliers among 100 measurements (9.00%)
+  7 (7.00%) low severe
+  1 (1.00%) low mild
+  1 (1.00%) high mild
+
+slow_fib_broken         time:   [18.323 ns 18.352 ns 18.390 ns]
+                        change: [−100.000% −100.000% −100.000%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 5 outliers among 100 measurements (5.00%)
+  2 (2.00%) high mild
+  3 (3.00%) high severe
+
+slow_dedup_broken       time:   [109.68 µs 109.84 µs 110.00 µs]
+                        change: [−99.170% −99.165% −99.161%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 25 outliers among 100 measurements (25.00%)
+  19 (19.00%) low severe
+  5 (5.00%) low mild
+  1 (1.00%) high severe
+

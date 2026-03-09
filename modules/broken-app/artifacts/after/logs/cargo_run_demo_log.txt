@@ -1,0 +1,2 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running `/home/q/Documents/Dev/Personal/Pet/optimization_n_safety/target/debug/demo`
